@@ -25,7 +25,6 @@ router.get('/', async function(req, res, next) {
       ],
     }
   });
-
   res.writeHead(200, { 'Content-Type': 'image/png' });
   res.end(image, 'binary');
 });
