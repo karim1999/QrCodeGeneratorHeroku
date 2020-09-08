@@ -18,6 +18,12 @@ router.get('/', async function(req, res, next) {
   const image = await nodeHtmlToImage({
     html: html,
     content: { dataURI, GTIN, qrValue, EXPIRY, SN, BATCH },
+    puppeteerArgs: {
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+      ],
+    }
   });
 
   res.writeHead(200, { 'Content-Type': 'image/png' });
